@@ -17,7 +17,9 @@ models:
         data_tests:
           - salary_check
   - name: product
-    description: "Employee DBT model"
+    description: "Purchase DBT -delete/update Model"
+  - name: purchase
+    description: "Purchase DBT -Merge Model"
 
 sources:
   - name: employee_table
@@ -30,3 +32,8 @@ sources:
     schema: PUBLIC
     tables:
       - name: PRODUCT_SRC
+  - name: purchase
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PURCHASE_SRC
