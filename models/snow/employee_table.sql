@@ -6,7 +6,7 @@
 }}
 
 
-with employee as
+with employee_source as
 (
     select
     EMPID as emp_id,
@@ -18,6 +18,6 @@ with employee as
     split_part(ADDRESS,',',2) as emp_city,
     split_part(ADDRESS,',',3) as emp_country,
     split_part(ADDRESS,',',4) as emp_zipcode
-    from DBT_DB.PUBLIC.EMPLOYEE_RAW
+    from {{source('employee_table','EMPLOYEE_RAW')}}
 )
-select * from employee
+select * from employee_source
