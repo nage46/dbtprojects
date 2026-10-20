@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: employee
+  - name: employee_table
     description: "Employee DBT model"
     columns:
       - name: EMP_ID
@@ -16,13 +16,17 @@ models:
       - name: emp_salary
         data_tests:
           - salary_check
-
-          
-
+  - name: product
+    description: "Employee DBT model"
 
 sources:
-  - name: employee
+  - name: employee_table
     database: DBT_DB
     schema: PUBLIC
     tables:
       - name: EMPLOYEE_RAW
+  - name: product
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PRODUCT_SRC
