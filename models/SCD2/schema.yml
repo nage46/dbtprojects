@@ -2,7 +2,9 @@ version: 2
 
 models:
     - name: product_raw
-      description: "dbt model to create the product raw table"
+      description: "dbt model to create the product raw table" 
+    - name: product_transformed.sql
+      description: "dbt model to create the product transform table" 
 
 sources:
     - name: product
