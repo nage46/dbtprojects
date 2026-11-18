@@ -1,5 +1,9 @@
 {% macro copy_into_snowflake(table_nm) %}
 
+--    target_db: DEA_BATCH_SCD2
+--    target_schema: RAW
+--    stage_name: DEA_BATCH_SCD2.RAW.DEA_BATCH_SCD2_STAGE
+
 --Delete the data from the copy table before running the copy command
 delete from {{var ('target_db') }}.{{var ('target_schema')}}.{{ table_nm }};
 
@@ -12,7 +16,7 @@ SELECT
 $1 AS SOURCE_DATA,
 METADATA$FILENAME AS SOURCE_FILENAME,
 CURRENT_TIMESTAMP AS INSERT_DTS
-FROM @{{ var('stage_name') }}/data/product
+FROM @{{var ('stage_name') }}/data/product
 )
 FILE_FORMAT = (TYPE = PARQUET);
 
